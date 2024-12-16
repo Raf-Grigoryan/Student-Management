@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Teacher</title>
+   <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+<form action="/teacher/add" method="post" enctype="multipart/form-data">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="surname" name="surname">
+    <input type="text" placeholder="email" name="email">
+    <input type="file" name="image">
+    <input type="submit" value="add">
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/teacher/add">ADD Teacher</a>
+        <a href="/">Home</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Teacher List</h1>
+    <table class="students-table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="teacher : ${teachers}">
+            <td>
+                <img th:src="@{/getImage(imageName=${teacher.getImageName()})}" alt="Image" width="50"
+                     height="50">
+            </td>
+            <td th:text="${teacher.id}"></td>
+            <td th:text="${teacher.name}"></td>
+            <td th:text="${teacher.surname}"></td>
+            <td th:text="${teacher.email}"></td>
+            <td><a th:href="@{/teacher/delete(id=${teacher.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

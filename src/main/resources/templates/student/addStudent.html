@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create/Update User</title>
+   <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+<form action="/student/add" method="post" enctype="multipart/form-data">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="surname" name="surname">
+    <input type="text" placeholder="email" name="email">
+    <select name="lesson.id">
+        <option th:each="lesson : ${lessons}" th:text="${lesson.title + ' ' + lesson.teacher.name}"
+                th:value="${lesson.id}"></option>
+    </select>
+    <input type="file" name="image">
+    <input type="submit" value="add">
+</form>
+</body>
+</html>

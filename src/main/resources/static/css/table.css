@@ -1,0 +1,101 @@
+/* table.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #5e72e4;
+    padding: 10px 20px;
+    color: white;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #5e72e4;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.students-table th,
+.students-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dddddd;
+}
+
+.students-table thead {
+    background-color: #5e72e4;
+    color: #ffffff;
+}
+
+.students-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.students-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.students-table img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.students-table td img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .students-table {
+        font-size: 14px;
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}

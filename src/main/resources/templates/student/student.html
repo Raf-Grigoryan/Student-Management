@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/student/add">Add Student</a>
+        <a href="/">Home</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Students List</h1>
+    <table class="students-table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Lesson & Teacher</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students}">
+            <td>
+                <img th:src="@{/getImage(imageName=${student.getImageName()})}" alt="Student Image" width="50"
+                     height="50">
+            </td>
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.surname}"></td>
+            <td th:text="${student.email}"></td>
+            <td>
+                <span th:if="${student.lesson != null}"
+                      th:text="${student.lesson.title} + ' | ' + ${student.lesson.teacher.name}"></span>
+                <span th:unless="${student.lesson != null}" th:text="'Данные не существуют'"></span>
+            </td>
+            <td><a th:href="@{/student/delete(id=${student.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

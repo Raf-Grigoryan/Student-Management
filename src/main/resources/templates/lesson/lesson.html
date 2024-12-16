@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/lesson/add">ADD Lesson</a>
+        <a href="/">Home</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Lesson List</h1>
+    <table class="students-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>title</th>
+            <th>Duration</th>
+            <th>price</th>
+            <th>start date</th>
+            <th>Teacher</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lesson : ${lessons}">
+            <td th:text="${lesson.id}"></td>
+            <td th:text="${lesson.title}"></td>
+            <td th:text="${lesson.duration}"></td>
+            <td th:text="${lesson.price}"></td>
+            <td th:text="${lesson.startDate}"></td>
+            <td th:text="${lesson.teacher.name + ' ' + lesson.teacher.surname}">
+                <img th:src="@{/getImage(imageName=${lesson.teacher.getImageName()})}" alt="Image" width="50"
+                     height="50">
+            </td>
+            <td><a th:href="@{/lesson/delete(id=${lesson.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
